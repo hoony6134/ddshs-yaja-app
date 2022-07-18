@@ -14,6 +14,10 @@ def lset(event):
     global location
     location=linput.get()
 
+def dateset(event):
+    global date
+    date=linput.get()
+
 def teamset(event):
     global team
     team=[]
@@ -57,20 +61,26 @@ idinput=tkinter.Entry(window)
 idinput.bind("<Motion>", idset)
 idinput.grid(row=3, column=1)
 
-teacherlabel=tkinter.Label(window, text="지도교사 선생님").grid(row=4, column=0)
+datelabel=tkinter.Label(window, text="날짜").grid(row=4, column=0)
+dateinput=tkinter.Entry(window)
+dateinput.bind("<Motion>", dateset)
+dateinput.grid(row=4, column=1)
+teamplabel=tkinter.Label(window, text="MM/DD 형식으로 작성").grid(row=4, column=2)
+
+teacherlabel=tkinter.Label(window, text="지도교사 선생님").grid(row=5, column=0)
 tinput=tkinter.Entry(window)
 tinput.bind("<Motion>", tset)
-tinput.grid(row=4, column=1)
+tinput.grid(row=5, column=1)
 
-locationlabel=tkinter.Label(window, text="신청 장소").grid(row=5, column=0)
+locationlabel=tkinter.Label(window, text="신청 장소").grid(row=6, column=0)
 linput=tkinter.Entry(window)
 linput.bind("<Motion>", lset)
-linput.grid(row=5, column=1)
+linput.grid(row=6, column=1)
 
-timelabel=tkinter.Label(window, text="신청 시간대").grid(row=6, column=0)
+timelabel=tkinter.Label(window, text="신청 시간대").grid(row=7, column=0)
 opt1 = tkinter.OptionMenu(window, timeopt, *timedrop)
 opt1.config(width=12, font=('Helvetica', 12))
-opt1.grid(row=6, column=1)
+opt1.grid(row=7, column=1)
 
 # debuglabel1=tkinter.Label(window, text=timeopt)
 # debuglabel1.grid(row=3, column=2)
@@ -82,11 +92,11 @@ def timecallback(*args):
 
 timeopt.trace("w", timecallback)
 
-teamlabel=tkinter.Label(window, text="추가 팀원").grid(row=7, column=0)
+teamlabel=tkinter.Label(window, text="추가 팀원").grid(row=8, column=0)
 teaminput=tkinter.Entry(window)
 teaminput.bind("<Motion>", teamset)
-teaminput.grid(row=7, column=1)
-teamlabel=tkinter.Label(window, text="쉼표로 구분, 없으면 '없음' 기재").grid(row=7, column=2)
+teaminput.grid(row=8, column=1)
+teamplabel=tkinter.Label(window, text="쉼표로 구분, 없으면 '없음' 기재").grid(row=8, column=2)
 
 def senddata():
     print('전송 서버 연결됨')
@@ -97,7 +107,7 @@ def senddata():
         messagebox.showinfo("야자 이동 신청 완료", "야자 이동 신청이 완료되었습니다.")
 
 sendbutton = tkinter.Button(window, text="신청하기", overrelief="solid", width=10, command=senddata, repeatdelay=1000, repeatinterval=100)
-sendbutton.grid(row=8,column=0)
+sendbutton.grid(row=9,column=0)
 
 window.mainloop()
 
