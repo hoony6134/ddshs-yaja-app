@@ -10,7 +10,7 @@ addr = ('<broadcast>', 33333)  # host, port
 UDPSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 UDPSock.bind(('',33333))
 UDPSock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-print("----------------------------------\n동신과고 야자이동 시스템 서버 v.1.0\n----------------------------------\n서버 준비됨.")
+print("----------------------------------\n동신과고 야자이동 시스템 서버 v.1.0\n----------------------------------\nServer ready.")
 
 # Receive messages
 while True:

@@ -100,7 +100,7 @@ teamplabel=tkinter.Label(window, text="쉼표로 구분, 없으면 '없음' 기�
 
 def senddata():
     print('전송 서버 연결됨')
-    tempdata="student_id:"+student_id, "teacher:"+teacher, "location:"+location, "team_members:",team
+    tempdata="student_id:"+student_id, "date:"+date, "teacher:"+teacher, "location:"+location, "team_members:",team
     data = str(tempdata)
     if UDPSock.sendto(data.encode(), addr):
         print("야자 이동 신청 정보 전송중.." % data)
